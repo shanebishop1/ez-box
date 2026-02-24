@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for coding agents working in this repository (`ez-box`, a TypeScript CLI for E2B sandboxes).
+Guidance for coding agents working in this repository (`ez-devbox`, a TypeScript CLI for E2B sandboxes).
 
 ## Purpose
 
