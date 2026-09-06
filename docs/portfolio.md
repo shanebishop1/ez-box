@@ -13,14 +13,17 @@
 
 ## Demo flow
 
-Run this in a directory containing `.env` with `E2B_API_KEY` and an `ez-devbox.config.toml`:
+Run this from a current source checkout, in a directory containing `.env` with `E2B_API_KEY` and an `ez-devbox.config.toml`:
 
 ```bash
-npx ez-devbox@latest create --mode ssh-opencode
-npx ez-devbox@latest resume
-npx ez-devbox@latest list --json
-npx ez-devbox@latest wipe
+npm run dev -- create --mode ssh-opencode --detach --json
+# Set SANDBOX_ID to the sandboxId from the redacted create result.
+npm run dev -- resume
+npm run dev -- list --json
+npm run dev -- wipe --sandbox-id "$SANDBOX_ID"
 ```
+
+The published npm `0.6.0` package predates the detached and prompt-transport options used by this flow. Any public recording should redact sandbox IDs, credentials, and private repository names.
 
 For a browser demo, replace the first command with `npx ez-devbox@latest create --mode web`. The command prints a password-protected OpenCode URL.
 

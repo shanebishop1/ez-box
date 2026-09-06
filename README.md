@@ -6,7 +6,7 @@
 
 `ez-devbox` is a small CLI for running coding agents in disposable E2B sandboxes without rebuilding the same shell glue every time.
 
-![ez-devbox: create a sandbox, use OpenCode, and resume the session](docs/assets/ez-devbox-demo.gif)
+> **Release status:** npm's latest release is `0.6.0`. This README tracks the current `main` branch, which includes unreleased CLI improvements. The `--detach`, prompt-file, and prompt-stdin examples require a current source checkout until the next npm release.
 
 The closest alternative is usually a homegrown setup: create an E2B sandbox, clone the repo, copy auth files, run setup commands, start `tmux`, SSH in, launch OpenCode/Codex/Claude Code, remember the sandbox ID, and reattach later. This tool packages that workflow into repeatable commands and config.
 
@@ -17,6 +17,18 @@ The closest alternative is usually a homegrown setup: create an E2B sandbox, clo
 - A config-driven bootstrapper for cloning repos, setting branches, installing dependencies, and starting in the right working directory.
 - A controlled way to pass selected env vars and sync local tool auth/config into the sandbox.
 - Optional tunnel setup for reaching local MCP servers, Docker containers, or other services from the sandbox.
+
+## Demo flow
+
+No recording is linked until this flow can be captured with sandbox IDs and private repository names redacted. From a current source checkout:
+
+```bash
+npm run dev -- create --mode ssh-opencode --detach --json
+# Set SANDBOX_ID to the redacted sandboxId from the create result.
+npm run dev -- resume
+npm run dev -- list --json
+npm run dev -- wipe --sandbox-id "$SANDBOX_ID"
+```
 
 ## Why Use It
 
@@ -76,7 +88,7 @@ npm install -g ez-devbox
 ez-devbox --help
 ```
 
-Use `ez-devbox` in portable instructions. The short `ezdb` binary is declared by the current package and will first be available on npm in the release after `0.5.5`; npm `0.5.5` exposes only `ez-devbox`. Once you install a version that includes it, `ezdb --help` is equivalent.
+The package exposes both `ez-devbox` and `ezdb` binaries. Use `ez-devbox` in portable instructions; after installation, `ezdb --help` is equivalent.
 
 ## Environment variables
 
