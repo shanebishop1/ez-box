@@ -23,3 +23,7 @@ coverage/
 .ez-devbox-last-run.json
 .agent-box-last-run.json
 .DS_Store
+
+# Local publishing notes
+publishing-guide-do-not-commit.md
+todo_dont_commit.md

@@ -247,3 +247,4 @@ See the [complete config reference](https://github.com/shanebishop1/ez-devbox/bl
 - Security reports: [SECURITY.md](https://github.com/shanebishop1/ez-devbox/blob/main/SECURITY.md)
 - Contributions: [CONTRIBUTING.md](https://github.com/shanebishop1/ez-devbox/blob/main/CONTRIBUTING.md)
 - Release notes: [CHANGELOG.md](https://github.com/shanebishop1/ez-devbox/blob/main/CHANGELOG.md)
+- [Portfolio and social copy](https://github.com/shanebishop1/ez-devbox/blob/main/docs/portfolio.md)
