@@ -13,7 +13,10 @@ This is the canonical checklist for the cleanup and portfolio-readiness work dis
 - [x] The repository has protected `main`, CI, release automation, security/contributor docs, examples, and package verification.
 - [x] Session #1's live E2B workflow passed for OpenCode, web auth, SSH, Codex, Claude, reconnection, and cleanup.
 - [x] Session #2's staged changes are resolved with the current upstream TypeScript/Vitest tooling and E2B SDK v2.
-- [x] Current HEAD includes the detached/prompt transport work, the focused source-maintenance pass, and the user-approved restored original terminal demo; the `0.6.1` release documentation is prepared pending publication.
+- [x] Current HEAD includes the detached/prompt transport work, the focused source-maintenance pass, and the user-approved restored original terminal demo.
+- [x] `v0.6.1` was published with a matching GitHub Release and npm provenance; installed-package smoke testing then found the npm bin-symlink entrypoint regression.
+- [x] Commit `f9bd94a` fixes the npm bin-symlink entrypoint regression and adds permanent real pack/install smoke coverage.
+- [ ] `v0.6.2` is the pending corrective release; its publication, GitHub Actions workflow, and npm provenance are not yet complete.
 - [x] Current offline validation passes with 369 tests: 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines; complexity, style, build, and package checks also pass.
 
 ## Phase 1: Finish Session #2 Safely
@@ -79,13 +82,14 @@ Only do these if the result is clearly smaller and more maintainable. Avoid a br
 Before publishing any follow-up version:
 
 - [x] Pre-release check passed from a clean, current `main` with no unresolved index entries.
-- [x] Confirmed the planned `0.6.1` version is unclaimed and the version-agreement precheck is complete; final package/tag/GitHub Release/npm agreement remains open until publication.
+- [x] Historical `v0.6.1` version-agreement precheck completed, followed by matching package/tag/GitHub Release/npm provenance evidence at publication; installed-package smoke later exposed the bin-symlink regression.
+- [ ] Confirm the corrective `0.6.2` version is unclaimed and complete its version agreement before publication.
 - [x] Run `npm run validate:offline`.
 - [x] Run `npm run e2e:live` from a trusted maintainer environment and verify cleanup; the 2026-09-06 run passed and the final sandbox listing was empty.
 - [x] Run `npm run pack:check` and inspect `npm pack --dry-run --json` when package contents changed.
-- [ ] Run the documented release command only after the version is confirmed unclaimed.
-- [ ] Confirm GitHub Actions Release succeeds and npm provenance is present.
-- [ ] Record the release evidence in the changelog or release notes.
+- [ ] Run the documented `v0.6.2` release command only after the version is confirmed unclaimed.
+- [ ] Confirm the `v0.6.2` GitHub Actions Release succeeds and npm provenance is present.
+- [ ] Record the `v0.6.2` release evidence in the changelog or release notes.
 
 ## Related Documents
 
