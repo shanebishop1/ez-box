@@ -8,8 +8,6 @@
 
 ![ez-devbox: create a sandbox, use OpenCode, and resume the session](docs/assets/ez-devbox-demo.gif)
 
-> **Release status:** npm's latest release is `0.6.0`. This README tracks the current `main` branch, which includes unreleased CLI improvements. The `--detach`, prompt-file, and prompt-stdin examples require a current source checkout until the next npm release.
-
 The closest alternative is usually a homegrown setup: create an E2B sandbox, clone the repo, copy auth files, run setup commands, start `tmux`, SSH in, launch OpenCode/Codex/Claude Code, remember the sandbox ID, and reattach later. This tool packages that workflow into repeatable commands and config.
 
 ## What This Is

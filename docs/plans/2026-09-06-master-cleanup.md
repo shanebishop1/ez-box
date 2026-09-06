@@ -13,7 +13,7 @@ This is the canonical checklist for the cleanup and portfolio-readiness work dis
 - [x] The repository has protected `main`, CI, release automation, security/contributor docs, examples, and package verification.
 - [x] Session #1's live E2B workflow passed for OpenCode, web auth, SSH, Codex, Claude, reconnection, and cleanup.
 - [x] Session #2's staged changes are resolved with the current upstream TypeScript/Vitest tooling and E2B SDK v2.
-- [x] Current HEAD includes the detached/prompt transport work and the focused source-maintenance pass; `v0.6.0` remains the latest published version and these changes are still unreleased.
+- [x] Current HEAD includes the detached/prompt transport work, the focused source-maintenance pass, and the user-approved restored original terminal demo; the `0.6.1` release documentation is prepared pending publication.
 - [x] Current offline validation passes with 369 tests: 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines; complexity, style, build, and package checks also pass.
 
 ## Phase 1: Finish Session #2 Safely
@@ -31,7 +31,7 @@ These are the immediate remaining items from the second readiness pass. Preserve
 - [x] Keep the package, README, changelog, test, and `.gitignore` changes directly related to this hardening pass.
 - [x] Run `npm ci` after lockfile regeneration.
 - [x] Run `npm run validate:offline`: 369 tests passed with 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines coverage; build, style, complexity, and package checks passed.
-- [x] Run `npm run e2e:live` with credentials and verify every created sandbox is actually deleted.
+- [x] Run `npm run e2e:live` with credentials on 2026-09-06: the live E2E passed, cleanup succeeded, and a final sandbox listing confirmed no remaining sandboxes.
 - [x] Review the complete diff, create a focused commit, and push only after the worktree is cleanly resolved.
 
 ## Phase 2: Confirm Session #1 Release Outcomes
@@ -55,9 +55,9 @@ These items were the original launch blockers and are complete. Reopen one only 
 These were identified in session #2 as the highest-value presentation improvements. They are optional code work and should not delay a technically verified release.
 
 - [x] Add reusable project summary, portfolio copy, social copy, and a basic demo flow in `docs/portfolio.md`.
-- [ ] Record a short, clean terminal demo (roughly 20-40 seconds) showing create, reconnect/resume, JSON listing, and cleanup. The prior GIF was only a blank 70ms frame, and no E2B credential is currently available for a replacement recording.
-- [ ] Add the demo to the README in a lightweight form that works on GitHub and does not expose credentials, sandbox IDs, or private repository names. This remains blocked by the missing usable recording; the README now truthfully explains that no recording is linked.
-- [x] Review README claims against the current published package, CI platforms, supported Node versions, and current CLI output. The README distinguishes published `0.6.0` behavior from current-source detached/prompt examples and reflects Node 20+, Linux/macOS CI, and the current command contracts.
+- [x] The user-approved original terminal demo (roughly 20-40 seconds) showing create, reconnect/resume, JSON listing, and cleanup is restored.
+- [x] Embed the restored demo in the README in its original lightweight GitHub-compatible placement without exposing credentials, sandbox IDs, or private repository names.
+- [x] Review README claims against the current CLI, release guidance, CI platforms, supported Node versions, and current CLI output. The README reflects Node 20+, Linux/macOS CI, and the current command contracts.
 - [x] Verify the public repository has useful discovery metadata and links to npm, GitHub, security guidance, and contribution guidance. Package metadata, badges, repository/homepage/issue links, and README policy links are present and consistent.
 - [x] Draft the public launch/social post from the verified capabilities in `docs/portfolio.md`; do not claim unverified live behavior. The portfolio summary and social draft use the verified CLI, CI, package, and live-test capabilities.
 
@@ -78,11 +78,11 @@ Only do these if the result is clearly smaller and more maintainable. Avoid a br
 
 Before publishing any follow-up version:
 
-- [ ] Start from a clean, current `main` with no unresolved index entries.
-- [ ] Confirm `package.json`, `package-lock.json`, changelog, Git tag, GitHub Release, and npm version agree.
-- [ ] Run `npm run validate:offline`.
-- [ ] Run `npm run e2e:live` from a trusted maintainer environment and verify cleanup.
-- [ ] Run `npm run pack:check` and inspect `npm pack --dry-run --json` when package contents changed.
+- [x] Pre-release check passed from a clean, current `main` with no unresolved index entries.
+- [x] Confirmed the planned `0.6.1` version is unclaimed and the version-agreement precheck is complete; final package/tag/GitHub Release/npm agreement remains open until publication.
+- [x] Run `npm run validate:offline`.
+- [x] Run `npm run e2e:live` from a trusted maintainer environment and verify cleanup; the 2026-09-06 run passed and the final sandbox listing was empty.
+- [x] Run `npm run pack:check` and inspect `npm pack --dry-run --json` when package contents changed.
 - [ ] Run the documented release command only after the version is confirmed unclaimed.
 - [ ] Confirm GitHub Actions Release succeeds and npm provenance is present.
 - [ ] Record the release evidence in the changelog or release notes.
