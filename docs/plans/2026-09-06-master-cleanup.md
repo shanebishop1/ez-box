@@ -1,6 +1,6 @@
 # ez-devbox Master Cleanup Plan
 
-Status: Active
+Status: Complete
 Owner: Shane Bishop
 Last updated: 2026-09-06
 
@@ -16,8 +16,8 @@ This is the canonical checklist for the cleanup and portfolio-readiness work dis
 - [x] Current HEAD includes the detached/prompt transport work, the focused source-maintenance pass, and the user-approved restored original terminal demo.
 - [x] `v0.6.1` was published with a matching GitHub Release and npm provenance; installed-package smoke testing then found the npm bin-symlink entrypoint regression.
 - [x] Commit `f9bd94a` fixes the npm bin-symlink entrypoint regression and adds permanent real pack/install smoke coverage.
-- [ ] `v0.6.2` is the pending corrective release; its publication, GitHub Actions workflow, and npm provenance are not yet complete.
-- [x] Current offline validation passes with 369 tests: 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines; complexity, style, build, and package checks also pass.
+- [x] Corrective release `v0.6.2` is published with matching package, package-lock, tag, GitHub Release, npm package, and npm provenance; the successful Release workflow and attestation are recorded below.
+- [x] Current offline validation passes with 370 tests: 82.32% statements, 72.90% branches, 82.88% functions, and 82.57% lines; complexity, style, build, and package checks also pass.
 
 ## Phase 1: Finish Session #2 Safely
 
@@ -33,8 +33,8 @@ These are the immediate remaining items from the second readiness pass. Preserve
 - [x] Keep the release-checklist safeguards for npm/GitHub version mismatches.
 - [x] Keep the package, README, changelog, test, and `.gitignore` changes directly related to this hardening pass.
 - [x] Run `npm ci` after lockfile regeneration.
-- [x] Run `npm run validate:offline`: 369 tests passed with 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines coverage; build, style, complexity, and package checks passed.
-- [x] Run `npm run e2e:live` with credentials on 2026-09-06: the live E2E passed, cleanup succeeded, and a final sandbox listing confirmed no remaining sandboxes.
+- [x] Run `npm run validate:offline`: 370 tests passed with 82.32% statements, 72.90% branches, 82.88% functions, and 82.57% lines coverage; build, style, complexity, and package checks passed.
+- [x] Run `npm run e2e:live` with credentials on 2026-09-06: 12/12 live E2E scenarios passed, cleanup passed 3/3, and the final sandbox listing confirmed zero remaining sandboxes.
 - [x] Review the complete diff, create a focused commit, and push only after the worktree is cleanly resolved.
 
 ## Phase 2: Confirm Session #1 Release Outcomes
@@ -75,7 +75,7 @@ Only do these if the result is clearly smaller and more maintainable. Avoid a br
 - [x] Recheck duplicated parsing, prompt, environment, formatting, and orchestration helpers before introducing new abstractions. The maintenance pass extracted only the shared helpers needed by the current command boundaries.
 - [x] Keep command modules aligned to parse, resolve, execute, and format responsibilities. The extracted `command-args.ts`, `command-env.ts`, `commands.create.execute.ts`, and `host-sandbox-sync.operations.ts` preserve those boundaries and public behavior.
 - [x] Add regression tests and docs for every behavior change; do not add tests solely to inflate coverage. Compatibility tests cover legacy state/flag behavior and command-specific environment entry points, alongside detached/prompt transport documentation.
-- [x] Run the full offline validation after any maintenance refactor. Senior review/current validation recorded 369 passing tests with 82.36% statements, 72.95% branches, 82.88% functions, and 82.61% lines coverage; style, complexity, build, and package checks passed.
+- [x] Run the full offline validation after any maintenance refactor. Senior review/current validation recorded 370 passing tests with 82.32% statements, 72.90% branches, 82.88% functions, and 82.57% lines coverage; style, complexity, build, and package checks passed.
 
 ## Release Gate
 
@@ -83,13 +83,13 @@ Before publishing any follow-up version:
 
 - [x] Pre-release check passed from a clean, current `main` with no unresolved index entries.
 - [x] Historical `v0.6.1` version-agreement precheck completed, followed by matching package/tag/GitHub Release/npm provenance evidence at publication; installed-package smoke later exposed the bin-symlink regression.
-- [ ] Confirm the corrective `0.6.2` version is unclaimed and complete its version agreement before publication.
-- [x] Run `npm run validate:offline`.
-- [x] Run `npm run e2e:live` from a trusted maintainer environment and verify cleanup; the 2026-09-06 run passed and the final sandbox listing was empty.
-- [x] Run `npm run pack:check` and inspect `npm pack --dry-run --json` when package contents changed.
-- [ ] Run the documented `v0.6.2` release command only after the version is confirmed unclaimed.
-- [ ] Confirm the `v0.6.2` GitHub Actions Release succeeds and npm provenance is present.
-- [ ] Record the `v0.6.2` release evidence in the changelog or release notes.
+- [x] Confirm the corrective `0.6.2` version was unclaimed and complete version agreement: `package.json`, `package-lock.json`, tag, GitHub Release, and npm all report `0.6.2`.
+- [x] Run `npm run validate:offline`: 370 tests passed with 82.32% statements, 72.90% branches, 82.88% functions, and 82.57% lines coverage.
+- [x] Run `npm run e2e:live` from a trusted maintainer environment: 12/12 scenarios passed, cleanup was 3/3, and the final sandbox listing was zero.
+- [x] Run `npm run pack:check` and inspect `npm pack --dry-run --json`: 220 files were packed, and the published `ez-devbox` and `ezdb` bins were verified.
+- [x] Run the documented `v0.6.2` release command: tag `v0.6.2` points to commit `9ca18f4`.
+- [x] Confirm the `v0.6.2` GitHub Actions Release and post-version CI succeeded: Release run [34066634470](https://github.com/shanebishop1/ez-devbox/actions/runs/34066634470) and CI run [34066633717](https://github.com/shanebishop1/ez-devbox/actions/runs/34066633717); npm publish includes SLSA provenance at https://registry.npmjs.org/-/npm/v1/attestations/ez-devbox@0.6.2.
+- [x] Record the `v0.6.2` release evidence in [CHANGELOG.md](../../CHANGELOG.md) and the [GitHub release notes](https://github.com/shanebishop1/ez-devbox/releases/tag/v0.6.2).
 
 ## Related Documents
 
