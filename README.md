@@ -20,15 +20,17 @@ The closest alternative is usually a homegrown setup: create an E2B sandbox, clo
 
 ## Demo flow
 
-From a current source checkout:
+After the [Quick start](#quick-start), with Node.js 20+, an `E2B_API_KEY` in `.env`, and an `ez-devbox.config.toml` in the current directory:
 
 ```bash
-npm run dev -- create --mode ssh-opencode --detach --json
-# Set SANDBOX_ID to the redacted sandboxId from the create result.
-npm run dev -- resume
-npm run dev -- list --json
-npm run dev -- wipe --sandbox-id "$SANDBOX_ID"
+npx ez-devbox@latest create --mode ssh-opencode --detach --json
+# Set SANDBOX_ID to the sandboxId from the create result.
+npx ez-devbox@latest resume
+npx ez-devbox@latest list --json
+npx ez-devbox@latest wipe --sandbox-id "$SANDBOX_ID"
 ```
+
+Privacy: redact sandbox IDs, credentials, and private repository names before sharing output or recordings.
 
 ## Why Use It
 
